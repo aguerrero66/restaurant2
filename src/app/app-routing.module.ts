@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PrincipalComponent } from './modulos/principal.component';
 import { DashboardComponent } from './modulos/dashboard/dashboard.component';
+import { UsuariosComponent } from './modulos/usuarios/usuarios.component';
 
 const routes: Routes = [
 {path:'', component:PrincipalComponent,
   children: [
     {path:'dashboard', component:DashboardComponent},
-    {path:'', redirectTo: '/dashboard', pathMatch:'full' },
+    {path:'Usuarios', component:UsuariosComponent},
+  
 
   ]
 
@@ -15,6 +17,7 @@ const routes: Routes = [
 
 
 ];
+
 
 
 

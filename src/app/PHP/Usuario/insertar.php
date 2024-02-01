@@ -10,17 +10,15 @@ require("../conexion.php");
 
 $tipo_usuario=intval($params->tipo_usuario);
 $fo_localidad=intval($params->fo_localidad);
-$fo_tipo_usuario=intval($params->fo_tipo_usuario);
+
+//$fo_tipo_usuario=intval($params->fo_tipo_usuario);//
 
 
 
 
-//$ins = "INSERT INTO usuario (`Nombre`, `identificacion`, `Telefono`, `Correo`, `Direccion`, `localidad`, `tipo_usuario`, `clave`)
-       // VALUES ('$params->nombre', '$params->identificacion', '$params->telefono', '$params->correo', '$params->direccion',
-        //'$params->localidad', '$params->tipo_usuario', SHA1('$params->clave'))";
 
-$ins = "INSERT INTO usuario(`Nombre`, `identificacion`, `Telefono`, `Correo`, `Direccion`,`fo_localidad`, `fo_tipo_usuario`,`clave`) 
-VALUES ('$params->nombre', '$params->identificacion', '$params->telefono', '$params->correo', '$params->direccion', '$fo_localidad','$fo_tipo_usuario' ,'" . password_hash($params->clave, PASSWORD_DEFAULT) . "')";
+$ins = "INSERT INTO usuario(`Nombre`,  `Telefono`, `Correo`, `Direccion`,`clave`) 
+VALUES ('$params->Nombre', '$params->Telefono', '$params->Correo', '$params->Direccion' , $sha1('$params->clave'))";
 
        
  

@@ -15,7 +15,7 @@ $id_usuario=intval($params->id_usuario);
 $clave = password_hash($params->clave, PASSWORD_DEFAULT);
 
 
-$editar ="UPDATE usuario SET nombre='$params->nombre', identificacion='$params->identificacion',telefono='$params->telefono',correo='$params->correo',direccion='$params->direccion',clave='$clave' WHERE id_usuario=$id_usuario";
+$editar ="UPDATE usuario SET nombre='$params->nombre', telefono='$params->telefono',correo='$params->correo',direccion='$params->direccion',clave='$clave' WHERE id_usuario=$id_usuario";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

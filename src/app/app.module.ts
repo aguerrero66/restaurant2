@@ -8,6 +8,9 @@ import { NavComponent } from './estructura/nav/nav.component';
 import { FooterComponent } from './estructura/footer/footer.component';
 import { PrincipalComponent } from './modulos/principal.component';
 import { DashboardComponent } from './modulos/dashboard/dashboard.component';
+import { UsuariosComponent } from './modulos/usuarios/usuarios.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { DashboardComponent } from './modulos/dashboard/dashboard.component';
     NavComponent,
     FooterComponent,
     PrincipalComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
