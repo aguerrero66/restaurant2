@@ -7,15 +7,16 @@ $params = json_decode ($json);
 
 
 
+$id=$_GET ['id'];
+
+
 require("../conexion.php");
 
 
 
-$id_usuario=intval($params->id_usuario);
-$clave = password_hash($params->clave, PASSWORD_DEFAULT);
 
 
-$editar ="UPDATE usuario SET nombre='$params->nombre', telefono='$params->telefono',correo='$params->correo',direccion='$params->direccion',clave='$clave' WHERE id_usuario=$id_usuario";
+$editar ="UPDATE Usuario SET Nombre='$params->Nombre', Telefono='$params->Telefono',Correo='$params->Correo',Direccion='$params->Direccion', clave = $sha1('$params->clave') WHERE id_usuario=$id";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

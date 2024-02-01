@@ -12,6 +12,7 @@ export class UsuariosComponent {
 //variables globales
 verf=false;
 usuario:any;
+iduser:any;
 user ={
 Nombre:"",
 Telefono:"",
@@ -20,11 +21,16 @@ Direccion:"",
 clave:""
 
 }
+
+// Para validar
 validNombre=true;
 validCorreo=true;
 validclave=true;
 validTelefono=true;
 validDireccion=true;
+
+//boton editar
+beditar=false;
 
 
 
@@ -42,6 +48,9 @@ validDireccion=true;
     switch(dato){
     case 0:
     this.verf=false;
+    this.limpiar();
+    this.beditar=false;
+    this.iduser="";
     break;
     case 1:
     this.verf=true;
@@ -172,4 +181,44 @@ borraruser(id:any){
 })
 
 }
+
+cargardatos(datos:any, id:number){
+
+//console.log (datos);
+this.user.Nombre=datos.Nombre;
+this.user.Correo=datos.Correo;
+this.user.clave=datos.clave;
+this.user.Telefono=datos.Telefono;
+this.user.Direccion=datos.Direccion;
+this.mostrar(1);
+this.beditar=true;
+this.iduser=id;
+
+
+}
+
+edita(){
+  this.validar();
+if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true ) {
+this.suser.edit (this.user, this.iduser).subscribe((datos:any) => {
+if(datos['resultado']=='OK'){
+
+this.consulta();  
+}
+
+});
+this.mostrar(0);
+
+
+
+}
+}
+
+
+
+
+
+
+
+
 }

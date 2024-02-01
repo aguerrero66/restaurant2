@@ -68,9 +68,11 @@
 
   
       <div class="button2" >
-      <button type="button" class="btn btn-warning" style="margin: 50px;"(click)="ingresar()" >Guardar</button>
+      <button *ngIf="beditar===false" type="button" class="btn btn-warning" style="margin: 50px"(click)="ingresar()" >Guardar</button>
+
+      <button *ngIf="beditar===true"  type="button" class="btn btn-warning" style="margin: 40px" (click)="edita()">Guardar cambios</button>
       
-      <button type="button" class="btn btn-warning"(click)="mostrar(0)">Cancelar</button>
+      <button type="button" class="btn btn-warning"style="margin: 40px" (click)="mostrar(0)">Cancelar</button>
     </div>
 
 </div>
@@ -96,9 +98,10 @@
       <td>{{item.Correo}}</td> 
       <td>{{item.fo_localidad}}</td> 
       <td>
-        <a>
+        <a (click)="cargardatos(item, item.id_usuario)">
        <span class="fas fa-edit Editar" title="Editar"></span> 
       </a>
+
        -
        <a (click)="preguntar(item.id_usuario, item.Nombre)">
        <span class= "fas fa-eraser Eliminar" title="Eliminar"></span>
