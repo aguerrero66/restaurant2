@@ -12,7 +12,7 @@ export class productosService{
   constructor(private http:HttpClient){}
 
   consultar (){
-    return this.http.get(`${this.url}consultar.PHP`)
+    return this.http.get(`${this.url}consultap.php`)
   }
   insertar(articulo:any){
     return this.http.post(`${this.url}insertar.php`,JSON.stringify(articulo));
@@ -22,8 +22,8 @@ export class productosService{
 
     return this.http.get(`${this.url}eliminar.php?id=${id}`);
   }
-  edit (datos:any){
-    return this.http.post(`${this.url}editar.php`,JSON.stringify(datos));
+  edit (datos:any, id:number){
+    return this.http.post(`${this.url}editar.php?id=${id}`,JSON.stringify(datos));
   }
 }
 

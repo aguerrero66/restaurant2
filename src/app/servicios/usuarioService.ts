@@ -14,6 +14,15 @@ export class usuarioService {
   consultar() {
     return this.http.get(`${this.url}consulta.php`);
   }
+
+  consultarol() {
+    return this.http.get(`${this.url}consultarol.php`);
+  }
+
+  consultalocalidad() {
+    return this.http.get(`${this.url}consultalocali.php`);
+  }
+
   insertar(articulo: any) {
     return this.http.post(`${this.url}insertar.php`, JSON.stringify(articulo));
   }

@@ -33,31 +33,63 @@
         <br>
         <input type="text" [(ngModel)]="user.Telefono" placeholder="Teléfono">
       </div>
+
+     
       
         
     
-      
-       <!--<input type="text" placeholder="Localidad">--> 
 
        <div>
        <span style="color: crimson;" *ngIf="validDireccion==false">Ingrese su dirección</span>
        <br>
         <input type="text"[(ngModel)]="user.Direccion" placeholder="Dirección">
       </div>
+
+
+      <div class="mb-3">
+        <select name="rol" id="fo_rol">
+   
+          <option value="0" label="Seleccione un rol"></option>
+          <option *ngFor="let itemrol of rol" value="{{itemrol.id_rol}}" label="{{itemrol.nombre}}">{{itemrol.nombre}}</option>
+   
+   
+   
+   
+   
+   
+   
+   
+        </select>
+   
+   
+         </div>
+
+         <br>
+
+         <div class="mb-3">
+          <select name="localidad" id="fo_localidad">
+     
+            <option value="0" label="Seleccione una localidad"></option>
+            <option *ngFor="let itemlocalidad of localidad" value="{{itemlocalidad.id_localidad}}" label="{{itemlocalidad.nombre}}">{{itemlocalidad.nombre}}</option>
+   
+     
+     
+     
+     
+     
+     
+     
+     
+          </select>
+     
+     
+           </div>
        
         
       </div>
     </div>  
 
-     <!--<div class="mb-3">
-        <label for="disabledSelect" class="form-label">Eliga su usuario</label>
-        <select id="disabledSelect" class="form-select">
-          <option>Administrador</option>
-          <option>Supervisor</option>
-          <option>Cliente</option>
-          <option>Domiciliario</option>
-          </select>
-      </div> --> 
+     
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
         <label class="form-check-label" for="disabledFieldsetCheck">
@@ -88,6 +120,8 @@
       <th>Telefono</th>
       <th>Correo</th>
         <th>Localidad</th>
+        <th>Rol</th>
+
         <th>Acciones</th>
 
     </tr>
@@ -97,6 +131,7 @@
       <td>{{item.Telefono}}</td> 
       <td>{{item.Correo}}</td> 
       <td>{{item.fo_localidad}}</td> 
+      <td>{{item.fo_rol}}</td> 
       <td>
         <a (click)="cargardatos(item, item.id_usuario)">
        <span class="fas fa-edit Editar" title="Editar"></span> 

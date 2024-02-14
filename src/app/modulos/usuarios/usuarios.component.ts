@@ -13,12 +13,16 @@ export class UsuariosComponent {
 verf=false;
 usuario:any;
 iduser:any;
+localidad:any;
+rol:any;
 user ={
 Nombre:"",
 Telefono:"",
 Correo:"",
 Direccion:"",
-clave:""
+clave:"",
+fo_localidad:0,
+fo_rol:0
 
 }
 
@@ -28,7 +32,8 @@ validCorreo=true;
 validclave=true;
 validTelefono=true;
 validDireccion=true;
-
+validfo_rol=true;
+validfo_localidad=true
 //boton editar
 beditar=false;
 
@@ -40,6 +45,8 @@ beditar=false;
   ngOnInit():void{
     this.consulta();
     this.limpiar();
+    this.consultalocali();
+    this.consultarol();
 
   }
 
@@ -67,6 +74,8 @@ limpiar () {
   this.user.Telefono="";
   this.user.Correo="";
   this.user.Direccion="";
+  this.user.fo_localidad=0,
+  this.user.fo_rol=0
 
 
 }
@@ -97,7 +106,20 @@ if(this.user.Telefono== "" ){
   this.validTelefono=false; 
 }else {this.validTelefono=true
             
-}                        
+}  
+
+if(this.user.fo_rol== 0 ){
+  this.validfo_rol=false; 
+}else {this.validfo_rol=true
+            
+}   
+
+if(this.user.fo_localidad== 0 ){
+  this.validfo_localidad=false; 
+}else {this.validfo_localidad=true
+            
+}    
+
 
 
 }
@@ -113,25 +135,46 @@ consulta (){
 
 }
 
+consultarol (){
+  this.suser.consultarol().subscribe((result:any)=>{
+   this.rol=result;
+   console.log(this.usuario);
+    
+  })
+
+}
+
+consultalocali (){
+  this.suser.consultalocalidad().subscribe((result:any)=>{
+   this.localidad=result;
+   console.log(this.usuario);
+    
+  })
+
+}
 
 //ingresar datos al formulario
-ingresar (){
+ingresar(){
 this.validar();
 
-if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true ) {
+console.log (this.rol);
+
+if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true && this.validfo_localidad==true && this.validfo_rol==true) {
 this.suser.insertar(this.user).subscribe((datos:any) => {
 if(datos['resultado']=='OK'){
 
 this.consulta();  
+
 }
 
 });
+
 this.mostrar(0);
 this.limpiar();
 
 
 
-} else  alert (this.alertaerror());
+} else  this.alertaerror();
 }
 
 alertaerror(){
@@ -190,6 +233,8 @@ this.user.Correo=datos.Correo;
 this.user.clave=datos.clave;
 this.user.Telefono=datos.Telefono;
 this.user.Direccion=datos.Direccion;
+this.user.fo_rol=datos.rol;
+this.user.fo_localidad=datos.localidad
 this.mostrar(1);
 this.beditar=true;
 this.iduser=id;
@@ -199,7 +244,7 @@ this.iduser=id;
 
 edita(){
   this.validar();
-if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true ) {
+if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true && this.validfo_localidad==true && this.validfo_rol==true ) {
 this.suser.edit (this.user, this.iduser).subscribe((datos:any) => {
 if(datos['resultado']=='OK'){
 

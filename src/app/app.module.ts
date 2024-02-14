@@ -11,6 +11,11 @@ import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { UsuariosComponent } from './modulos/usuarios/usuarios.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './modulos/login/login.component';
+import { ProductosComponent } from './modulos/productos/productos.component';
+import { VentasComponent } from './modulos/ventas/ventas.component';
+import { ComprasComponent } from './modulos/compras/compras.component';
+import { InicioComponent } from './modulos/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     PrincipalComponent,
     DashboardComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    LoginComponent,
+    ProductosComponent,
+    VentasComponent,
+    ComprasComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,

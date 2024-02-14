@@ -12,9 +12,13 @@ require("../conexion.php");
 
 
 
-$id_productos=intval($params->id_productos);
+$id=$_GET ['id'];
+$precio_neto = (float)$params->precio_neto;  
+$precio_venta = (float)$params->precio_venta;  
+$cantidad = (int)$params->cantidad; 
 
-$editar ="UPDATE productos SET nombre='$params->nombre', precio='$params->precio', cantidad='$params->cantidad' WHERE id_productos=$id_productos";
+
+$editar ="UPDATE Productos SET nombre='$params->nombre',precio_venta=$precio_venta,precio_neto=$precio_neto, cantidad=$cantidad WHERE id_productos=$id";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

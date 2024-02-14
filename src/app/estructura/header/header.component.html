@@ -8,31 +8,40 @@
     <nav class="navbar-menu">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Inicio</a>
+                <a class="nav-link text-white" [routerLink]="['/Inicio']">Inicio</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Menú</a>
+            <li class="nav-item" *ngIf="mostrarProductos()">
+                <a class="nav-link text-white" [routerLink]="['/Productos']">Productos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item"*ngIf="mostrarUsuarios()" >
                 <a class="nav-link text-white" [routerLink]="['/Usuarios']">Usuarios</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" [routerLink]="['/Compras']">Compras</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="mostrarDashboard()">
                 <a class="nav-link text-white" [routerLink]="['/dashboard']">Dashboard</a>
             </li>
-           
+        
+        <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/dashboard']">Ventas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/dashboard']">Notificaciones</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/dashboard']">Pedidos</a>
+        </li>
 
-            <ul class="container1" style="display: flex; justify-content: flex-end;">
-              <input type="text" placeholder="  Buscar">
-      
-            </ul>
+
+            
             
             <li class="nav-item">
-                <a class="fas fa-cart-arrow-down carshopping" [routerLink]="'/carshopping'" title="car shopping"></a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-shopping-cart carshopping"  style="cursor: pointer;" title="Carrito de compras"></i>
+                </a>
             </li>
-
+            
         </ul>
         
     </nav>
@@ -40,5 +49,44 @@
     <div id="navbarSearch" class="navbar-search w-100 collapse">
         <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
     </div>
+
+
+<button class="fa-solid fa-bars acordeon" type="button" title="acordeon" style ="color:white "data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+<div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <div class="d-flex flex-column">
+     <br>   
+
+    <a class="nav-link text-white"style="cursor:pointer; font-size: 30px; margin-botton:20px;">Mi perfil 
+        <i class="fa-solid fa-user" style="color:white"> Mi perfil</i>
+
+    </a>
+   <br>
+   <br>
+    <a class="nav-link text-white"style="cursor:pointer ; font-size: 30px; margin-botton:20px;">Menu
+    
+        <i class="fa-solid fa-bell-concierge" style="color:white"></i>
+    </a>
+    <br>
+    <br>
+    <a class="nav-link text-white" (click)="cerrar()" style="cursor:pointer ; font-size: 30px; ">Cerrar sesión
+        <i class="fa-solid fa-right-from-bracket" style="color:white"></i>
+    </a>
+</div>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    
+
+  </div>
+</div>
+
+
+
   </header>
+
+
   
+
+<!-- Agrega un contenedor para separar el header del elemento ul -->
+

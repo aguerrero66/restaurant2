@@ -1,0 +1,100 @@
+<h1>PRODUCTOS</h1>
+
+<button class="btn btn-dark"(click)="mostrar(1)">Registrar productos</button><br><br>
+<div id="formulario" *ngIf="verf==true">  
+  <div class="col-sm-6 col-md-5 form-section">
+  <div class="login-wrapper">
+      <div class="form-group" >
+
+        <div>
+        <span style="color: crimson;" *ngIf="validnombre==false">Ingrese el nombre del producto</span>
+        <br>
+        <input type="text" [(ngModel)]="product.nombre" placeholder="Ingrese el nombre del producto"> 
+      </div>
+        
+      <div>
+        <span style="color: crimson;" *ngIf="validprecio_venta==false">Ingrese el precio de venta</span>
+        <br>
+        <input type="number" [(ngModel)]="product.precio_venta"placeholder="Ingrese el precio de venta">
+      </div>
+        
+        <div>
+        <span style="color: crimson;" *ngIf="validcprecio_neto==false">Ingrese  el precio neto</span>
+        <br>
+        <input type="number" [(ngModel)]="product.precio_neto"  placeholder="Ingrese el precio neto">
+      </div>
+
+
+        
+        <div> 
+        <span style="color: crimson;" *ngIf="validcantidad==false">Ingrese la cantidad</span>
+        <br>
+        <input type="number" [(ngModel)]="product.cantidad" placeholder="Ingrese la cantidad">
+      </div>
+
+
+      <div class="button2" >
+        <button *ngIf="beditar===false" type="button" class="btn btn-warning" style="margin: 50px"(click)="ingresar()" >Guardar</button>
+  
+        <button *ngIf="beditar===true"  type="button" class="btn btn-warning" style="margin: 40px" (click)="edita()">Guardar cambios</button>
+        
+        <button type="button" class="btn btn-warning"style="margin: 40px" (click)="mostrar(0)">Cancelar</button>
+      </div>
+  
+  </div>
+  </div> 
+</div>
+
+</div>
+
+
+
+    <div id="tabla">
+   <div class="table-responsive">
+   <table class="table table-bordered">
+      <tr>
+        <th>Nombre</th>
+        <th>Precio venta</th>
+        <th>Precio neto</th>
+        <th>Cantidad</th>
+          <th>Acciones</th>
+  
+      </tr>
+
+      <tr *ngFor="let item  of producto">
+        <td>{{item.nombre}}</td> 
+        <td>{{item.precio_venta}}</td> 
+        <td>{{item.precio_neto}}</td> 
+        <td>{{item.cantidad}}</td> 
+
+
+        <td>
+          <a (click)="cargardatos(item, item.id_productos)">
+         <span class="fas fa-edit Editar" title="Editar"></span> 
+          </a>
+       
+         -
+
+
+         <a (click)="preguntar(item.id_productos, item.nombre)">
+         <span class= "fas fa-eraser Eliminar" title="Eliminar"></span>
+         </a>
+       
+         </td>
+        
+        
+      </tr>
+    </table>
+   </div>
+
+     
+      
+        
+    
+
+
+
+
+   
+  
+    

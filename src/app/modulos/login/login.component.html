@@ -1,0 +1,25 @@
+
+<div id="fondo">
+<div class="container">
+        <div class="caja1">
+            <img class="logotipo" src="/assets/img/Logo Burgue Middle Earth.png">
+        </div>
+        <div class="caja2">
+            <h2 style="color:white;">¡Donde comer será toda una aventura!</h2>
+        </div>
+        <div class="caja3">
+            <input class="controles" type="email" placeholder="Email" name="usuario" [(ngModel)]="email">
+            <input class="controles" type="password" placeholder="Contraseña" name="contraseña" [(ngModel)]="clave">
+            <div class="mb-3">
+              </div>
+            <span *ngIf="error==true" style="color:brown;"> Email o contraseña incorrecta</span>
+            <br>
+            <input class="botones" type="submit" value="INGRESAR" (click)="consulta()">
+            
+        </div>
+    </div>
+
+</div>    
+
+
+
