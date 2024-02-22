@@ -12,14 +12,14 @@ require("../conexion.php");
 
 
 
-$id_compra=intval($params->id_compra);
+$id=$_GET ['id'];
 $fecha_compra = date('Y-m-d', strtotime($params->fecha_compra));
 $productos_comprados = intval($params->productos_comprados);
-$total_compra= intval($params->total_compras);
+$total_compra= intval($params->total_compra);
 
 
 
-$editar ="UPDATE compra SET fecha_compra='$fecha_compra', productos_comprados='$productos_comprados', total_compra='$total_compra',metodo_pago='$params->metodo_pago' WHERE id_compra=$id_compra";
+$editar ="UPDATE compra SET fecha_compra='$fecha_compra', productos_comprados='$productos_comprados', Materia_prima='$params->Materia_prima',total_compra='$total_compra',metodo_pago='$params->metodo_pago',Empresa='$params->Empresa' WHERE id_compra=$id";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

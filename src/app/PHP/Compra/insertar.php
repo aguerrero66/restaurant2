@@ -17,13 +17,13 @@ require("../conexion.php");
 
 
 $fecha_compra = date('Y-m-d', strtotime($params->fecha_venta));
-$productos_comprados = intval($params->productos_vendidos);
-$total_compra= intval($params->total_vendidos);
+$productos_comprados = intval($params->productos_comprados);
+$total_compra= intval($params->total_compra);
 $id_productos=intval($params->id_productos);
 
 
-$ins = "INSERT INTO compra(`fecha_compra`, `productos_comprados`,`total_compra`,`metodo_pago`)
-        VALUES ('$fecha_compra','$productos_comprados','$total_compra','$params->metodo_pago')";
+$ins = "INSERT INTO compra(`fecha_compra`, `productos_comprados`,`Materia_prima`,`total_compra`,`metodo_pago` ,`Empresa`)
+        VALUES ('$fecha_compra','$productos_comprados','$params->Materia_prima','$total_compra','$params->metodo_pago', '$params->Empresa')";
 
 if (!$resultado = mysqli_query($conexion, $ins)) {
     die("Error en la consulta: " . mysqli_error($conexion));

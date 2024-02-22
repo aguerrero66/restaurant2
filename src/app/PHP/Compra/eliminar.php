@@ -11,7 +11,7 @@ require("../conexion.php");
 
 
 
-$del = "DELETE FROM usuario WHERE id_usuario=" . $_GET['id'];
+  $del = "DELETE FROM Compra WHERE id_compra=" . $_GET['id'];
 
 if (!$resultado = mysqli_query($conexion, $del)) {
     die("Error en la consulta: " . mysqli_error($conexion));

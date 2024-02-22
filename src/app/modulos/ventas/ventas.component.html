@@ -1,1 +1,113 @@
-<p>ventas works!</p>
+<h1>Ventas</h1>
+
+<button class="btn btn-dark"(click)="mostrar(1)">Ingrese venta</button><br><br>
+<div id="formulario" *ngIf="verf==true">  
+    <div class="col-sm-6 col-md-5 form-section">
+    <div class="login-wrapper">
+        <div class="form-group" >
+  
+          <div>
+          <span style="color: crimson;" *ngIf="validfecha_venta==false">Ingrese fecha de la venta</span>
+          <br>
+          <input type="date" [(ngModel)]="ventas.fecha_venta" placeholder="fecha_venta"> 
+        </div>
+          
+        
+        
+    
+          
+          <div>
+          <span style="color: crimson;" *ngIf="validtotal_ventas==false">Ingrese el total en ventas</span>
+          <br>
+          <input type="number" [(ngModel)]="ventas.total_ventas"  placeholder="Ingrese total de ventas">
+        </div>
+
+        <div class="mb-3">
+            <span style="color: crimson;" *ngIf="validproductosvendidos==false">Cantidad de productos vendidos</span>
+            <br>
+            <input type="number" [(ngModel)]="ventas.productos_vendidos"  placeholder="Cantidad de productos vendidos">
+          </div>
+  
+      
+
+           <div class="mb-3">
+            <select class="form-select mb-3" aria-label="Default select example" name="productos" id="productos" [(ngModel)]="ventas.fo_productos">
+       
+              <option value="0" label="Seleccione el producto"></option>
+              <option  *ngFor="let itemp of Productos" value="{{itemp.id_productos}}" label="{{itemp.nombre}}">{{itemp.nombre}}</option>
+  
+     
+            </select>
+  
+            <span style="color: crimson;" *ngIf="validfo_productos==false">productos</span>
+       
+             </div>
+         
+          
+        </div>
+      </div>  
+  
+      
+    
+        <div class="button2" >
+        <button *ngIf="beditar===false" type="button" class="btn btn-warning" style="margin: 50px"(click)="ingresar()" >Guardar</button>
+  
+        <button *ngIf="beditar===true"  type="button" class="btn btn-warning" style="margin: 40px" (click)="edita()">Guardar cambios</button>
+        
+        <button type="button" class="btn btn-warning"style="margin: 40px" (click)="mostrar(0)">Cancelar</button>
+      </div>
+  
+  </div>
+  </div> 
+
+
+
+
+<div id="tabla">
+    <div class="table-responsive" >
+    <table class="table table-bordered" style="color:black; border: 4px solid black;">
+      <thead class="table-light"> 
+        <tr>
+          <th>Codigo de venta</th>
+          <th>Fecha  de venta</th>
+          <th>Unidades vendidas</th>
+          <th>Productos</th>
+          <th>Total ventas</th>
+            
+    
+            <th>Acciones</th>
+    
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let item  of venta">
+          <td>{{item.id_ventas}}</td> 
+          <td>{{item.fecha_venta}}</td> 
+          <td>{{item.productos_vendidos}}</td> 
+          <td>{{item.fo_productos}}</td> 
+          <td>{{item.total_ventas}}</td> 
+          
+          <td>
+           <a (click)="cargardatos(item, item.fo_productos)">
+           <span class="fas fa-edit Editar" title="Editar"></span> 
+          </a> 
+    
+           -
+           <a (click)="preguntar(item.id_ventas, item.fo_productos)">
+           <span class= "fas fa-eraser Eliminar" title="Eliminar"></span>
+          </a>
+    
+          </td>
+          
+          
+    
+    
+    
+    
+        </tr>
+      </tbody> 
+      </table>
+    </div>
+    </div>
+    

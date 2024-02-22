@@ -1,7 +1,6 @@
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+#footer {
     text-align: center;
-    padding: 10px; /* Ajusta el relleno según sea necesario */
-}
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-top: auto; /* Esto empujará el footer hacia abajo */
+  }

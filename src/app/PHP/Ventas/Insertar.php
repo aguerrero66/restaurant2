@@ -18,12 +18,12 @@ require("../conexion.php");
 
 $fecha_venta = date('Y-m-d', strtotime($params->fecha_venta));
 $productos_vendidos = intval($params->productos_vendidos);
-$total_ventas= intval($params->total_vendidos);
-$id_productos=intval($params->id_productos);
+$total_ventas= intval($params->total_ventas);
+$fo_productos=intval($params->fo_productos);
 
 
 $ins = "INSERT INTO ventas(`fecha_venta`, `productos_vendidos`,`total_ventas`,`fo_productos`) 
-        VALUES ('$fecha_venta','$productos_vendidos','$total_ventas','$id_productos')";
+        VALUES ('$fecha_venta','$productos_vendidos','$total_ventas','$fo_productos')";
 
 if (!$resultado = mysqli_query($conexion, $ins)) {
     die("Error en la consulta: " . mysqli_error($conexion));

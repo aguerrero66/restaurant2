@@ -1,8 +1,40 @@
-.carouselExampleCaptions{
-  width: 50%;
- 
+#carouselExampleCaptions {
+  max-width: 1000px; // Ajusta el ancho máximo del carrusel según tus preferencias
+  margin: 0 auto; // Centra el carrusel en la página
+}
+
+.carruserinner {
+ font-size: 60px;
+
+
+}
+
+.container-fluid{
+  background-color: #FAA269;
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+
+
+
+}
+h5 {
+  font-size: 60px;
 
 
 
 
 }
+p{
+  font-size:30px;
+
+
+
+}
+
+.imagenes{
+  background-color: #FAA269
+
+
+}
+

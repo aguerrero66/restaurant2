@@ -13,24 +13,25 @@
             <li class="nav-item" *ngIf="mostrarProductos()">
                 <a class="nav-link text-white" [routerLink]="['/Productos']">Productos</a>
             </li>
+
             <li class="nav-item"*ngIf="mostrarUsuarios()" >
                 <a class="nav-link text-white" [routerLink]="['/Usuarios']">Usuarios</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="mostrarCompras()">
                 <a class="nav-link text-white" [routerLink]="['/Compras']">Compras</a>
             </li>
             <li class="nav-item" *ngIf="mostrarDashboard()">
                 <a class="nav-link text-white" [routerLink]="['/dashboard']">Dashboard</a>
             </li>
         
-        <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/dashboard']">Ventas</a>
+        <li class="nav-item" *ngIf="mostrarVentas">
+            <a class="nav-link text-white" [routerLink]="['/ventas']">Ventas</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/dashboard']">Notificaciones</a>
+            <a class="nav-link text-white" [routerLink]="['/Notificaciones']">Notificaciones</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/dashboard']">Pedidos</a>
+            <a class="nav-link text-white" [routerLink]="['/Pedidos']">Pedidos</a>
         </li>
 
 
@@ -63,7 +64,7 @@
     </a>
    <br>
    <br>
-    <a class="nav-link text-white"style="cursor:pointer ; font-size: 30px; margin-botton:20px;">Menu
+    <a class="nav-link text-white"style="cursor:pointer ; font-size: 30px; margin-botton:20px;">Sedes
     
         <i class="fa-solid fa-bell-concierge" style="color:white"></i>
     </a>
@@ -83,10 +84,9 @@
 
 
 
-  </header>
+</header>
 
 
   
 
-<!-- Agrega un contenedor para separar el header del elemento ul -->
 

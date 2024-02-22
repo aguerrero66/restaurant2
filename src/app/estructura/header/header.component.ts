@@ -43,6 +43,13 @@ mostrarUsuarios() {
 mostrarDashboard() {
   return sessionStorage.getItem('rol') === '1';
 }
+mostrarCompras() {
+  return sessionStorage.getItem('rol') === '1';
+}
+mostrarVentas() {
+  return sessionStorage.getItem('rol') === '1';
+}
+
 
 
 }

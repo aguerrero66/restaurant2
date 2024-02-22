@@ -1,1 +1,133 @@
-<p>compras works!</p>
+<h1>COMPRAS</h1>
+<button class="btn btn-dark"(click)="mostrar(1)">Registrar compras</button><br><br>
+<div id="formulario" *ngIf="verf==true">  
+  <div class="col-sm-6 col-md-5 form-section">
+  <div class="login-wrapper">
+      <div class="form-group" >
+
+        <div>
+        <span style="color: crimson;" *ngIf="validfecha_compra==false"> Ingrese la fecha de compra</span>
+        <br>
+        <input type="date" [(ngModel)]="compra.fecha_compra" placeholder="Ingrese la fecha de la compra"> 
+      </div>
+        
+      <div>
+        <span style="color: crimson;" *ngIf="validproductos_comprados==false">Ingrese la cantidad de productos comprados</span>
+        <br>
+        <input type="number" [(ngModel)]="compra.productos_comprados"placeholder="Ingrese cantidad de productos comprados">
+      </div>
+
+      <div>
+        <span style="color: crimson;" *ngIf="validMateria_prima==false">Ingrese el producto adquirido</span>
+        <br>
+        <input type="text" [(ngModel)]="compra.Materia_prima"placeholder="Ingrese el producto adquirido">
+      </div>
+        
+        <div>
+        <span style="color: crimson;" *ngIf="validtotal_compra==false">Ingrese  el total de la compra</span>
+        <br>
+        <input type="number" [(ngModel)]="compra.total_compra"  placeholder="Ingrese el total de la compra">
+      </div>
+
+
+        
+        <div> 
+        <span style="color: crimson;" *ngIf="validmetodo_pago==false">Ingrese el metodo de metodo_pago</span>
+        <br>
+        <input type="text" [(ngModel)]="compra.metodo_pago" placeholder="Ingrese el metodo de pago">
+      </div>
+
+      <div> 
+        <span style="color: crimson;" *ngIf="validEmpresa==false">Ingrese la empresa</span>
+        <br>
+        <input type="text" [(ngModel)]="compra.Empresa" placeholder="Ingrese la empresa">
+      </div>
+
+
+     
+
+      <div class="button2" >
+        <button *ngIf="beditar===false" type="button" class="btn btn-warning" style="margin: 50px"(click)="ingresar()" >Guardar</button>
+  
+        <button *ngIf="beditar===true"  type="button" class="btn btn-warning" style="margin: 40px" (click)="edita()">Guardar cambios</button>
+        
+        <button type="button" class="btn btn-warning"style="margin: 40px" (click)="mostrar(0)">Cancelar</button>
+      </div>
+  
+  </div>
+  </div> 
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabla">
+  <table class="table table-bordered" style="color:black; border: 4px solid black;">
+    <thead class="table-light">
+      <tr style="color:black">
+          <th>Fecha de compra</th>
+          <th> Número de productos comprados</th>
+          <th>Productos comprados</th>
+          <th>Total de compras</th>
+          <th>Metodo de pago</th>
+            <th>Empresa</th>
+            
+    
+            <th>Acciones</th>
+          </tr>
+
+        </thead>   
+        
+        <tbody>
+
+        <tr *ngFor="let item of buy" style="color:black">
+          <td>{{item.fecha_compra}}</td> 
+          <td>{{item.productos_comprados}}</td>
+          <td>{{item.Materia_prima}}</td>  
+          <td>{{item.total_compra}}</td> 
+          <td>{{item.metodo_pago}}</td> 
+          <td>{{item.Empresa}}</td> 
+          <td>
+            <a (click)="cargardatos(item, item.id_compra)" >
+           <span class="fas fa-edit Editar" title="Editar"></span> 
+          </a>
+    
+           
+           <a (click)="preguntar(item.id_compra, item.Materia_prima)">
+           <span class= "fas fa-eraser Eliminar" title="Eliminar"></span>
+          </a>
+    
+          </td>
+
+
+          
+          
+    
+    
+    
+    
+        </tr> 
+      </tbody>
+      </table>
+    </div>
+  

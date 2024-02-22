@@ -5,8 +5,13 @@ import { DashboardComponent } from './modulos/dashboard/dashboard.component';
 import { UsuariosComponent } from './modulos/usuarios/usuarios.component';
 import { LoginComponent } from './modulos/login/login.component';
 import { ValidacionUserGuard } from './guards/validacionuser.guard';
-import { ProductosComponent } from './modulos/productos/productos.component';
 import { InicioComponent } from './modulos/inicio/inicio.component';
+
+import { ComprasComponent } from './modulos/compras/compras.component';
+import { VentasComponent } from './modulos/ventas/ventas.component';
+import { ProductosComponent } from './modulos/productos/productos.component';
+
+
 
 const routes: Routes = [
 {path:'', component:PrincipalComponent,
@@ -14,8 +19,12 @@ const routes: Routes = [
   children: [
     {path:'dashboard', component:DashboardComponent},
     {path:'Usuarios', component:UsuariosComponent},
-    {path:'Productos', component:ProductosComponent},
+   {path:'Productos', component:ProductosComponent},
     {path:'Inicio', component:InicioComponent},
+    {path:'Compras', component:ComprasComponent},
+    {path:'ventas', component:VentasComponent},
+  
+  
   
 
   ]

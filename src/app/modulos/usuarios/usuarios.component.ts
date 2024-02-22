@@ -33,7 +33,7 @@ validclave=true;
 validTelefono=true;
 validDireccion=true;
 validfo_rol=true;
-validfo_localidad=true
+validfo_localidad=true;
 //boton editar
 beditar=false;
 
@@ -158,12 +158,17 @@ ingresar(){
 this.validar();
 
 console.log (this.rol);
+console.log (this.user);
+console.log (this.validfo_localidad);
 
 if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true && this.validfo_localidad==true && this.validfo_rol==true) {
 this.suser.insertar(this.user).subscribe((datos:any) => {
 if(datos['resultado']=='OK'){
 
+  
 this.consulta();  
+this.consultalocali();
+this.consultarol ();
 
 }
 
@@ -227,14 +232,14 @@ borraruser(id:any){
 
 cargardatos(datos:any, id:number){
 
-//console.log (datos);
+console.log (datos);
 this.user.Nombre=datos.Nombre;
 this.user.Correo=datos.Correo;
 this.user.clave=datos.clave;
 this.user.Telefono=datos.Telefono;
 this.user.Direccion=datos.Direccion;
-this.user.fo_rol=datos.rol;
-this.user.fo_localidad=datos.localidad
+this.user.fo_rol=datos.fo_rol;
+this.user.fo_localidad=datos.fo_localidad
 this.mostrar(1);
 this.beditar=true;
 this.iduser=id;

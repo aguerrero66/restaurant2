@@ -84,17 +84,17 @@ validar (){
   }else {this.validnombre=true
     
     }
-  if(this.product.precio_venta== 0 ){
+  if(this.product.precio_venta==0 ){
         this.validprecio_venta=false; 
   }else {this.validprecio_venta=true
         
   }
-  if(this.product.precio_neto== 0 ){
+  if(this.product.precio_neto==0 ){
           this.validcprecio_neto=false; 
   }else {this.validcprecio_neto=true
           
   }
-  if(this.product.cantidad== 0 ){
+  if(this.product.cantidad==0 ){
       this.validcantidad=false; 
   }else {this.validcantidad=true
             
@@ -193,12 +193,14 @@ if(datos['resultado']=='OK'){
   } 
 
 
-  cargardatos(datos:any, id:number){
+
+//cargar datos 
+ cargardatos(datos:any, id:number){
 
     //console.log (datos);
     this.product.nombre=datos.nombre;
     this.product.precio_venta=datos.precio_venta;
-    this.product.precio_neto=datos.precio_venta;
+    this.product.precio_neto=datos.precio_neto;
     this.product.cantidad=datos.cantidad;
     this.mostrar(1);
     this.beditar=true;

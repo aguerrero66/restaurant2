@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem('Correo', this.usuario.Correo);
     sessionStorage.setItem('rol', this.usuario.fo_rol);
     console.log(sessionStorage);
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['Inicio']);
     }else {
       console.log (" no entro");
       this.error=true;
