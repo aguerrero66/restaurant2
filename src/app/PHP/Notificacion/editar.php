@@ -12,9 +12,11 @@ require("../conexion.php");
 
 
 
-$id_notificacion=intval($params->id_notificacion);
+$id=$_GET ['id'];
+$fo_Usuario=$params->fo_Usuario;
+$fo_rol=$params->fo_rol;
 
-$editar ="UPDATE notificacion SET tipo_notificacion='$params->tipo_notificacion', mensaje='$params->mensaje' WHERE id_notificacion=$id_notificacion";
+$editar ="UPDATE Notificacion SET tipo_notificacion='$params->tipo_notificacion', mensaje='$params->mensaje', fo_Usuario='$fo_Usuario', fo_rol='$fo_rol' WHERE id_notificacion=$id";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

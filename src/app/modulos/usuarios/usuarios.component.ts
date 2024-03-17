@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { usuarioService } from "src/app/servicios/usuarioService";
 import Swal from 'sweetalert2';
 
@@ -14,14 +14,14 @@ verf=false;
 usuario:any;
 iduser:any;
 localidad:any;
-rol:any;
+fo_rol:any;
 user ={
 Nombre:"",
 Telefono:"",
 Correo:"",
 Direccion:"",
 clave:"",
-fo_localidad:0,
+fo_localidad:0 ,
 fo_rol:0
 
 }
@@ -129,7 +129,7 @@ if(this.user.fo_localidad== 0 ){
 consulta (){
   this.suser.consultar().subscribe((result:any)=>{
    this.usuario=result;
-   console.log(this.usuario);
+   //console.log(this.usuario);
     
   })
 
@@ -137,8 +137,8 @@ consulta (){
 
 consultarol (){
   this.suser.consultarol().subscribe((result:any)=>{
-   this.rol=result;
-   console.log(this.usuario);
+   this.fo_rol=result;
+   //console.log(this.usuario);
     
   })
 
@@ -147,7 +147,7 @@ consultarol (){
 consultalocali (){
   this.suser.consultalocalidad().subscribe((result:any)=>{
    this.localidad=result;
-   console.log(this.usuario);
+   //console.log(this.usuario);
     
   })
 
@@ -157,9 +157,9 @@ consultalocali (){
 ingresar(){
 this.validar();
 
-console.log (this.rol);
+/*console.log (this.fo_rol);
 console.log (this.user);
-console.log (this.validfo_localidad);
+console.log (this.validfo_localidad);*/
 
 if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true && this.validfo_localidad==true && this.validfo_rol==true) {
 this.suser.insertar(this.user).subscribe((datos:any) => {
@@ -230,16 +230,20 @@ borraruser(id:any){
 
 }
 
-cargardatos(datos:any, id:number){
+cargardatos(items:any, id:number){
 
-console.log (datos);
-this.user.Nombre=datos.Nombre;
-this.user.Correo=datos.Correo;
-this.user.clave=datos.clave;
-this.user.Telefono=datos.Telefono;
-this.user.Direccion=datos.Direccion;
-this.user.fo_rol=datos.fo_rol;
-this.user.fo_localidad=datos.fo_localidad
+console.log (items);
+//console.log(items.fo_rol);
+this.user={
+Nombre:items.Nombre,
+Correo:items.Correo,
+clave:items.clave,
+Telefono:items.Telefono,
+Direccion:items.Direccion,
+fo_rol:items.fo_rol,
+fo_localidad:items.fo_localidad
+}
+console.log("Después de asignar:", this.validfo_localidad);
 this.mostrar(1);
 this.beditar=true;
 this.iduser=id;
@@ -249,6 +253,9 @@ this.iduser=id;
 
 edita(){
   this.validar();
+  //console.log (this.user.fo_rol);
+  //console.log (this.user.fo_localidad);
+
 if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true && this.validfo_localidad==true && this.validfo_rol==true ) {
 this.suser.edit (this.user, this.iduser).subscribe((datos:any) => {
 if(datos['resultado']=='OK'){

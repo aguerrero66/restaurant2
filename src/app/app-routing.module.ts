@@ -10,6 +10,10 @@ import { InicioComponent } from './modulos/inicio/inicio.component';
 import { ComprasComponent } from './modulos/compras/compras.component';
 import { VentasComponent } from './modulos/ventas/ventas.component';
 import { ProductosComponent } from './modulos/productos/productos.component';
+import { PedidosComponent } from './modulos/pedidos/pedidos.component';
+import { NotificacionesComponent } from './modulos/notificaciones/notificaciones.component';
+import { LocalidadComponent } from './modulos/localidad/localidad.component';
+import { RolComponent } from './modulos/rol/rol.component';
 
 
 
@@ -23,6 +27,10 @@ const routes: Routes = [
     {path:'Inicio', component:InicioComponent},
     {path:'Compras', component:ComprasComponent},
     {path:'ventas', component:VentasComponent},
+    {path:'Notificaciones', component:NotificacionesComponent},
+  {path:'Pedidos', component:PedidosComponent},
+  {path:'Localidad', component:LocalidadComponent}, 
+  {path:'Rol', component:RolComponent},
   
   
   

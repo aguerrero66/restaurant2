@@ -1,0 +1,129 @@
+<h1>Notificaciones</h1>
+<button class="btn btn-dark"(click)="mostrar(1)">Ingrese notificacion</button><br><br>
+
+<div id="formulario" *ngIf="verf==true">  
+    <div class="col-sm-6 col-md-5 form-section">
+    <div class="login-wrapper">
+        <div class="form-group" >
+  
+          
+
+        
+
+        <div class="mb-3">
+          <select class="form-select mb-3" aria-label="Default select example" name="rol" id="rol" [(ngModel)]="notificaciones.fo_rol">
+     
+            <option value="0" label="Seleccione su rol"></option>
+            <option  *ngFor="let itemr of rol" value="{{itemr.id_rol}}" label="{{itemr.nombre}}">{{itemr.nombre}}</option>
+
+   
+          </select>
+
+          <span style="color: crimson;" *ngIf="validfo_rol==false">rol</span>
+     
+           </div>
+
+
+           <div class="mb-3">
+            <select class="form-select mb-3" aria-label="Default select example" name="usuario" id="usuario" [(ngModel)]="notificaciones.fo_Usuario">
+       
+              <option value="0" label="Seleccione su Usuario"></option>
+              <option  *ngFor="let itemu of usuario" value="{{itemu.id_usuario}}" label="{{itemu.Nombre}}">{{itemu.Nombre}}</option>
+  
+     
+            </select>
+  
+            <span style="color: crimson;" *ngIf="validfo_Usuario==false">usuarios</span>
+       
+             </div>   
+
+             <div>
+              <span style="color: crimson;" *ngIf="validtipo_notificacion==false">tipo de notificacion</span>  
+              <select class="form-select form-select-sm" aria-label="Small select example" [(ngModel)]="notificaciones.tipo_notificacion">
+                <option selected>Eliga el tipo de notificación</option>
+                <option value="En preparación de alimentos" >En preparación de alimentos</option>
+                <option value="El pedido ya salio">El pedido ya salio</option>
+                <option value="El pedido se entrego">El pedido se entrego</option>
+              </select>
+              
+          </div>     
+
+
+          <div class="contenedor">
+            <span style="color: crimson;"*ngIf="validmensaje==false">Mensaje</span>
+            <br>
+            <input type="text" [(ngModel)]="notificaciones.mensaje" id="mensaje"placeholder="mensaje"> 
+          </div>  
+
+          <div class="button2" >
+        <button *ngIf="beditar===false" type="button" class="btn btn-warning" style="margin: 50px"(click)="ingresar()" >Guardar</button>
+  
+        <button *ngIf="beditar===true"  type="button" class="btn btn-warning" style="margin: 40px" (click)="edita()">Guardar cambios</button>
+        
+        <button type="button" class="btn btn-warning"style="margin: 40px" (click)="mostrar(0)">Cancelar</button>
+      
+      </div> 
+        
+        
+    
+          
+    
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="tabla">
+    <div class="table-responsive" >
+    <table class="table table-bordered" style="color:black; border: 4px solid black;">
+      <thead class="table-light"> 
+        <tr>
+          <th>Codigo de notificación</th>
+          <th>Tipo de notificación</th>
+          <th>Mensaje</th>
+          <th>Usuario</th>
+          <th>Rol</th>
+          
+            
+    
+            <th>Acciones</th>
+    
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let item  of notificacion">
+          <td>{{item.id_notificacion}}</td> 
+          <td>{{item.tipo_notificacion}}</td> 
+          <td>{{item.mensaje}}</td> 
+          <td>{{item.Usuario}}</td> 
+          <td>{{item.rol}}</td> 
+         
+          
+          <td>
+           <a (click)="cargardatos(item, item.idnotificacion)">
+           <span class="fas fa-edit Editar" title="Editar"></span> 
+          </a> 
+    
+           -
+           <a (click)="preguntar(item.id_notificacion, item.id_notificacion)">
+           <span class= "fas fa-eraser Eliminar" title="Eliminar"></span>
+          </a>
+    
+          </td>
+          
+          
+    
+    
+    
+    
+        </tr>
+      </tbody> 
+      </table>
+    </div>
+    </div>

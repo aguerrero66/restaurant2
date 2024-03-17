@@ -1,0 +1,151 @@
+<h1>Pedidos</h1>
+<button class="btn btn-dark"(click)="mostrar(1)">Ingrese pedidos</button><br><br>
+
+<div id="formulario" *ngIf="verf==true">  
+    <div class="col-sm-6 col-md-5 form-section">
+    <div class="login-wrapper">
+        <div class="form-group" >
+  
+          
+           <!--<div class="mb-3">
+            <select class="form-select mb-3" aria-label="Default select example" name="usuario" id="usuario" [(ngModel)]="notificaciones.fo_Usuario">
+       
+              <option value="0" label="Seleccione su Usuario"></option>
+              <option  *ngFor="let itemu of usuario" value="{{itemu.id_usuario}}" label="{{itemu.Nombre}}">{{itemu.Nombre}}</option>
+  
+     
+            </select>
+  
+            <span style="color: crimson;" *ngIf="validfo_Usuario==false">usuarios</span>
+       
+             </div> -->
+
+             <div class="contenedor1">
+              <span style="color: crimson;" *ngIf="validfecha_pedido==false">Fecha del pedido</span>  
+              <input type="date" [(ngModel)]="pedidos.fecha_pedido" id="mensaje"placeholder="Fecha de pedido"> 
+              
+          </div>     
+          <div class="contenedor">
+            <span style="color: crimson;"*ngIf="validproductos==false">Digite la cantidad de productos</span>
+            <br>
+            <input type="number" [(ngModel)]="pedidos.productos" id="productos"placeholder="Digite la cantidad de productos"> 
+          </div>  
+
+          <div class="contenedor">
+            <span style="color: crimson;"*ngIf="validestado_del_pedido==false">Estado del pedido</span>
+            <br>
+            <input type="text" [(ngModel)]="pedidos.estado_del_pedido" id="estado del pedido"placeholder="Estado del pedido"> 
+          </div>   
+
+          <div class="contenedor">
+            <span style="color: crimson;"*ngIf="validmetodo_pago==false">Metodo de pago</span>
+            <br>
+            <input type="text" [(ngModel)]="pedidos.metodo_pago" id="metodo_pago"placeholder="Metodo de pago"> 
+          </div>   
+          <div class="contenedor4">
+            <span style="color: crimson;"*ngIf="validtotal==false">Total</span>
+            <br>
+            <input type="number" [(ngModel)]="pedidos.total" id="total"placeholder="total comprado"> 
+          </div>   
+          <div class="mb-3">
+            <select class="form-select mb-3" aria-label="Default select example" name="rol" id="rol" [(ngModel)]="pedidos.fo_Usuario">
+       
+              <option value="0" label="Seleccione su usuario"></option>
+              <option  *ngFor="let itemu of usuario" value="{{itemu.id_usuario}}" label="{{itemu.Nombre}}">{{itemu.Nombre}}</option>
+              <span style="color: crimson;" *ngIf="validfo_Usuario==false">usuarios</span>
+  
+     
+            </select>
+  
+
+
+
+
+
+
+          <div class="button2" >
+        <button *ngIf="beditar===false" type="button" class="btn btn-warning" style="margin: 50px" (click)="ingresar ()" >Guardar</button>
+  
+        <button *ngIf="beditar===true"  type="button" class="btn btn-warning" style="margin: 40px"(click)="edita ()">Guardar cambios</button>
+        
+        <button type="button" class="btn btn-warning"style="margin: 40px" (click)="mostrar(0)">Cancelar</button>
+      
+      </div> 
+        
+        
+    
+          
+    
+
+
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="tabla">
+    <div class="table-responsive" >
+    <table class="table table-bordered" style="color:black; border: 4px solid black;">
+      <thead class="table-light"> 
+        <tr>
+          <th>ID Pedido</th>
+          <th>Fecha Pedido</th>
+          <th>Productos</th>
+          <th>Estado del pedido</th>
+          <th>Metodo de pago</th>
+          <th>Total</th>
+          <th>Usuario</th>
+          
+            
+    
+            <th>Acciones</th>
+    
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let item  of pedido">
+          <td>{{item.id_pedido}}</td> 
+          <td>{{item.fecha_pedido}}</td> 
+          <td>{{item.productos}}</td> 
+          <td>{{item.estado_del_pedido}}</td> 
+          <td>{{item.metodo_pago}}</td> 
+          <td>{{item.total}}</td>   
+          <td>{{item.Usuario}}</td>   
+         
+          
+          <td>
+           <a (click)="cargardatos(item, item.id_pedido)">
+           <span class="fas fa-edit Editar" title="Editar"></span> 
+          </a> 
+    
+           -
+           <a (click)="preguntar(item.id_pedido, item.id_pedido)">
+           <span class= "fas fa-eraser Eliminar" title="Eliminar"></span>
+          </a>
+    
+          </td> 
+          
+          
+    
+    
+    
+    
+        </tr>
+      </tbody> 
+      </table>
+    </div>
+    </div>

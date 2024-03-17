@@ -50,7 +50,7 @@
         <select class="form-select" aria-label="Default select example" name="rol" id="fo_rol" [(ngModel)]="user.fo_rol">
    
           <option value="0" label="Seleccione un rol"></option>
-          <option *ngFor="let itemrol of rol" value="{{itemrol.id_rol}}" label="{{itemrol.nombre}}">{{itemrol.nombre}}</option>
+          <option *ngFor="let itemrol of fo_rol" value="{{itemrol.id_rol}}" label="{{itemrol.nombre}}">{{itemrol.nombre}}</option>
    
    
    
@@ -60,7 +60,7 @@
    
    
         </select>
-        <span style="color: crimson;" *ngIf="validfo_rol==false">fo_rol</span>
+        <span style="color: crimson;" *ngIf="validfo_rol==false">Ingrese el rol</span>
    
    
          </div>
@@ -68,16 +68,15 @@
          <br>
 
          <div class="mb-3">
+          <span style="color: crimson;" *ngIf="validfo_localidad==false">Ingrese la localidad</span>
           <select class="form-select" aria-label="Default select example" name="localidad" id="fo_localidad" [(ngModel)]="user.fo_localidad">
-     
             <option value="0" label="Seleccione una localidad"></option>
-            <option  *ngFor="let itemlocalidad of localidad" value="{{itemlocalidad.id_localidad}}" label="{{itemlocalidad.nombre}}">{{itemlocalidad.nombre}}</option>
+            <option  *ngFor="let itemlocalidad of localidad" value="{{itemlocalidad.id_localidad}}" >{{itemlocalidad.nombre}}</option>
 
    
           </select>
 
-          <span style="color: crimson;" *ngIf="validfo_localidad==false">Ingrese su dirección</span>
-     
+         
            </div>
        
         
@@ -121,10 +120,10 @@
       <td>{{item.Direccion}}</td> 
       <td>{{item.Telefono}}</td> 
       <td>{{item.Correo}}</td> 
-      <td>{{item.fo_localidad}}</td> 
-      <td>{{item.fo_rol}}</td> 
+      <td>{{item.localidad}}</td> 
+      <td>{{item.rol}}</td> 
       <td>
-        <a (click)="cargardatos(item, item.id_usuario)">
+        <a (click)="cargardatos(item, item.id)">
        <span class="fas fa-edit Editar" title="Editar"></span> 
       </a>
 

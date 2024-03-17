@@ -4,7 +4,11 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 require("../conexion.php");
 
-$con = "SELECT * FROM pedido ORDER BY id_pedido";
+$con = "SELECT p.*, u.Nombre AS Usuario
+FROM pedido p
+INNER JOIN Usuario u ON p.fo_Usuario= u.id_usuario
+
+ORDER BY p.id_pedido";
 $res = mysqli_query($conexion, $con) or die("Error en la consulta de productos");
 
 $vec = [];

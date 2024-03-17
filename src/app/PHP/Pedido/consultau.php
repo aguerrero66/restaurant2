@@ -4,11 +4,7 @@ header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 require("../conexion.php");
 
-$con = "SELECT n.*, u.Nombre AS Usuario, r.Nombre AS rol
-FROM Notificacion n
-INNER JOIN Usuario u ON n.fo_Usuario= u.id_usuario
-INNER JOIN rol r ON  n.fo_rol=r.id_rol
-ORDER BY n.id_notificacion";
+$con = "SELECT* FROM Usuario  ORDER BY nombre";
 $res = mysqli_query($conexion, $con) or die("Error en la consulta de productos");
 
 $vec = [];

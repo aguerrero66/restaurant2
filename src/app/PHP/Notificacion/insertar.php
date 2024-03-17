@@ -8,11 +8,13 @@ $params = json_decode($json);
 require("../conexion.php");
 
       
- $id_usuario = intval($params->id_usuario);
+ $fo_Usuario = $params->fo_Usuario;
+ $fo_rol = $params->fo_rol;
+
 
     
-        $ins = "INSERT INTO Notificacion( `tipo_notificacion`, `mensaje`) 
-        VALUES ('$params->tipo_notificacion','$params->mensaje')";
+        $ins = "INSERT INTO Notificacion( `tipo_notificacion`, `mensaje`, fo_Usuario, fo_rol) 
+        VALUES ('$params->tipo_notificacion','$params->mensaje', $fo_Usuario, $fo_rol)";
 
         mysqli_query($conexion, $ins) or die("Error en la inserción: " . mysqli_error($conexion));
 

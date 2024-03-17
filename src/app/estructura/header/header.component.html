@@ -24,7 +24,7 @@
                 <a class="nav-link text-white" [routerLink]="['/dashboard']">Dashboard</a>
             </li>
         
-        <li class="nav-item" *ngIf="mostrarVentas">
+        <li class="nav-item" *ngIf="mostrarVentas()">
             <a class="nav-link text-white" [routerLink]="['/ventas']">Ventas</a>
         </li>
         <li class="nav-item">
@@ -33,6 +33,15 @@
         <li class="nav-item">
             <a class="nav-link text-white" [routerLink]="['/Pedidos']">Pedidos</a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/Localidad']">Localidades</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/Rol']">Roles</a>
+        </li>
+
 
 
             

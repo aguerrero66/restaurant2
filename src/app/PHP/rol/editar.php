@@ -12,9 +12,9 @@ require("../conexion.php");
 
 
 
-$id_tipousuario=intval($params->id_tipousuario);
+$id=$_GET ['id'];
 
-$editar ="UPDATE rol SET nombre='$params->nombre', codigo='$params->codigo' WHERE id_tipousuario=$id_rol";
+$editar ="UPDATE rol SET nombre='$params->nombre', codigo='$params->codigo' WHERE id_rol=$id";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

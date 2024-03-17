@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 require("../conexion.php");
 
-$con = "SELECT V.*, p.nombre AS fo_productos FROM Ventas V
+$con = "SELECT V.*, p.nombre AS productos FROM Ventas V
 INNER JOIN Productos p ON V.fo_productos =p.id_productos
 ORDER BY id_ventas";
 $res = mysqli_query($conexion,$con) or die("Error en la consulta de productos");

@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 
 require("../conexion.php");
 
-$con = "SELECT U.*, r.nombre AS fo_rol, l.nombre AS fo_localidad from Usuario U
+$con = "SELECT U.*, r.nombre AS rol, l.nombre AS localidad from Usuario U
 INNER JOIN rol r ON U.fo_rol = r.id_rol INNER JOIN localidad l ON U.fo_localidad = l.id_localidad
 ORDER BY U.id_usuario";
 

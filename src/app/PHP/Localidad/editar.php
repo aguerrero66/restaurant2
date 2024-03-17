@@ -6,15 +6,15 @@ $json= file_get_contents ('php://input');
 $params = json_decode ($json);
 
 
-
 require("../conexion.php");
 
 
 
 
-$id_localidad=intval($params->id_localidad);
+$id=$_GET ['id'];
+$numero= intval($params->numero);
 
-$editar ="UPDATE localidad SET nombre='$params->nombre', numero='$params->numero' WHERE id_localidad=$id_localidad";
+$editar ="UPDATE localidad SET nombre='$params->nombre', numero=$numero WHERE id_localidad=$id";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

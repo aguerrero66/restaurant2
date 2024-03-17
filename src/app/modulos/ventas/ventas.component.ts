@@ -171,7 +171,7 @@ ingresar(){
   edita(){
     this.validar();
     if(this.validfecha_venta==true && this.validproductosvendidos==true && this.validtotal_ventas==true && this.validfo_productos) {
-      this.sventas.insertar(this.ventas).subscribe((datos:any) => {
+      this.sventas.edit(this.ventas,this.idventa).subscribe((datos:any) => {
       if(datos['resultado']=='OK') {
   if(datos['resultado']=='OK'){
   
@@ -186,7 +186,7 @@ ingresar(){
   }
   }
 
-  borraruser(id:any){
+  borrarventa(id:any){
     this.sventas.eliminar(id).subscribe((datos:any) => {
       if(datos['resultado']=='OK'){
       
@@ -211,11 +211,11 @@ ingresar(){
       confirmButtonText: "¡Sí, eliminar!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.borraruser (id)
+        this.borrarventa (id)
   
         Swal.fire({
           title: "¡Eliminado!",
-          text: "Usuario eliminado.",
+          text: "Producto eliminado.",
           icon: "success"
         });
       }

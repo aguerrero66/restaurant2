@@ -1,0 +1,92 @@
+<h1>ROLES</h1>
+<button class="btn btn-dark"(click)="mostrar(1)">Registre el rol</button><br><br>
+<div id="formulario" *ngIf="verf==true">  
+  <div class="col-sm-6 col-md-5 form-section">
+  <div class="login-wrapper">
+      <div class="form-group" >
+
+        <div>
+        <span style="color: crimson;" *ngIf="validnombre==false">Ingrese el nombre del rol</span>
+        <br>
+        <input type="text" [(ngModel)]="roles.nombre" placeholder="Ingrese el nombre el rol"> 
+      </div>
+        
+
+      <div>
+        <span style="color: crimson;" *ngIf="validcodigo==false">Ingrese el codigo del rol</span>
+        <br>
+        <input type="text" [(ngModel)]="roles.codigo" placeholder="Ingrese el nombre el codigo del rol"> 
+      </div>
+      
+      
+  
+
+        
+       
+        
+      </div>
+    </div>  
+
+    
+  
+      <div class="button2" >
+      <button *ngIf="beditar===false" type="button" class="btn btn-warning" style="margin: 50px"(click)="ingresar()" >Guardar</button>
+
+      <button *ngIf="beditar===true"  type="button" class="btn btn-warning" style="margin: 40px" (click)="edita()">Guardar cambios</button>
+      
+      <button type="button" class="btn btn-warning"style="margin: 40px" (click)="mostrar(0)">Cancelar</button>
+    </div>
+
+</div>
+</div> 
+
+
+
+
+
+
+
+
+
+<div id="tabla">
+    <table class="table table-bordered" style="color:black; border: 4px solid black;">
+      <thead class="table-light">
+        <tr style="color:black">
+            <th>ID ROL</th>
+            <th> NOMBRE</th>
+            <th>CÓDIGO</th>
+              <th>Acciones</th>
+            </tr>
+  
+          </thead>   
+          
+          <tbody>
+  
+          <tr *ngFor="let item of rol" style="color:black">
+            <td>{{item.id_rol}}</td> 
+            <td>{{item.nombre}}</td>
+            <td>{{item.codigo}}</td> 
+            <td>
+              <a (click)="cargardatos(item, item.id_rol)" >
+             <span class="fas fa-edit Editar" title="Editar"></span> 
+            </a>
+      
+             
+             <a (click)="preguntar(item.id_rol, item.codigo)">
+             <span class= "fas fa-eraser Eliminar" title="Eliminar"></span>
+            </a>
+      
+            </td>
+  
+  
+            
+            
+      
+      
+      
+      
+          </tr> 
+        </tbody>
+        </table>
+      </div>
+    
