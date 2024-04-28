@@ -14,6 +14,7 @@ import { PedidosComponent } from './modulos/pedidos/pedidos.component';
 import { NotificacionesComponent } from './modulos/notificaciones/notificaciones.component';
 import { LocalidadComponent } from './modulos/localidad/localidad.component';
 import { RolComponent } from './modulos/rol/rol.component';
+import { PerfilComponent } from './modulos/perfil/perfil.component';
 
 
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'Pedidos', component:PedidosComponent},
   {path:'Localidad', component:LocalidadComponent}, 
   {path:'Rol', component:RolComponent},
+  {path:'Perfil', component:PerfilComponent},
   
   
   

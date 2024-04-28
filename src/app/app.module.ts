@@ -19,6 +19,7 @@ import { PedidosComponent } from './modulos/pedidos/pedidos.component';
 import { NotificacionesComponent } from './modulos/notificaciones/notificaciones.component';
 import { LocalidadComponent } from './modulos/localidad/localidad.component';
 import { RolComponent } from './modulos/rol/rol.component';
+import { PerfilComponent } from './modulos/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { RolComponent } from './modulos/rol/rol.component';
     PedidosComponent,
     NotificacionesComponent,
     LocalidadComponent,
-    RolComponent
+    RolComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

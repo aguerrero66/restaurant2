@@ -10,44 +10,60 @@
             <li class="nav-item">
                 <a class="nav-link text-white" [routerLink]="['/Inicio']">Inicio</a>
             </li>
+
+
+
+
+           <div class="nav-item">
+
+            <ul>
+                <li>
+                <a class="nav-link" (click)="toggleMenu()">
+                    <i class="fa-solid fa-users" style="cursor: pointer;" title="imageUser"></i>
+                </a>
+                <ul [hidden]="!menuDesplegado">
+                    <li *ngIf="mostrarUsuarios()">
+                        <a class="nav-link text-white" [routerLink]="['/Usuarios']">Usuarios</a>
+                    </li>
+                    <li *ngIf="mostrarProductos()">
+                        <a class="nav-link text-white" [routerLink]="['/Localidad']">Localidades</a>
+                    </li>
+                    <li *ngIf="mostrarProductos()">
+                        <a class="nav-link text-white" [routerLink]="['/Rol']">Roles</a>
+                    </li>
+                 
+                </ul>  
+               </li>  
+            </ul>    
+            </div>
+            
+
+
             <li class="nav-item" *ngIf="mostrarProductos()">
                 <a class="nav-link text-white" [routerLink]="['/Productos']">Productos</a>
             </li>
 
-            <li class="nav-item"*ngIf="mostrarUsuarios()" >
-                <a class="nav-link text-white" [routerLink]="['/Usuarios']">Usuarios</a>
-            </li>
+            
             <li class="nav-item" *ngIf="mostrarCompras()">
                 <a class="nav-link text-white" [routerLink]="['/Compras']">Compras</a>
             </li>
-            <li class="nav-item" *ngIf="mostrarDashboard()">
+           <!----<li class="nav-item" *ngIf="mostrarDashboard()">
                 <a class="nav-link text-white" [routerLink]="['/dashboard']">Dashboard</a>
-            </li>
+            </li>-->
         
         <li class="nav-item" *ngIf="mostrarVentas()">
             <a class="nav-link text-white" [routerLink]="['/ventas']">Ventas</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="mostrarProductos()">
             <a class="nav-link text-white" [routerLink]="['/Notificaciones']">Notificaciones</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="mostrarProductos()">
             <a class="nav-link text-white" [routerLink]="['/Pedidos']">Pedidos</a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/Localidad']">Localidades</a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link text-white" [routerLink]="['/Rol']">Roles</a>
-        </li>
-
-
-
-            
             
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a class="nav-link"  [routerLink]="['/dashboard']">
                     <i class="fas fa-shopping-cart carshopping"  style="cursor: pointer;" title="Carrito de compras"></i>
                 </a>
             </li>
@@ -67,8 +83,8 @@
     <div class="d-flex flex-column">
      <br>   
 
-    <a class="nav-link text-white"style="cursor:pointer; font-size: 30px; margin-botton:20px;">Mi perfil 
-        <i class="fa-solid fa-user" style="color:white"> Mi perfil</i>
+    <a class="nav-link text-white"style="cursor:pointer; font-size: 30px; margin-botton:20px;"[routerLink]="['/Perfil']">Mi perfil 
+        <i class="fa-solid fa-user" style="color:white" > Mi perfil</i>
 
     </a>
    <br>

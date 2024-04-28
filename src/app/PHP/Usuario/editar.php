@@ -18,7 +18,7 @@ require("../conexion.php");
 
 
 
-$editar ="UPDATE Usuario SET Nombre='$params->Nombre', Telefono='$params->Telefono',Correo='$params->Correo',Direccion='$params->Direccion', clave = $sha1('$params->clave'),fo_localidad = '$fo_localidad',fo_rol='$fo_rol' WHERE id_usuario=$id";
+$editar ="UPDATE Usuario SET Nombre='$params->Nombre', Telefono='$params->Telefono',Correo='$params->Correo',Direccion='$params->Direccion', clave = $sha1('$params->clave'),fo_localidad = '$fo_localidad',fo_rol='$fo_rol' WHERE id_usuario='$id'";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

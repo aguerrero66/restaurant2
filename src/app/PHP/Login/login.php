@@ -24,7 +24,7 @@ while ($reg = mysqli_fetch_array($res)) {
 
 
 if ($vec==[]) {
-    $vec[1] = array("validar"=>"no valida");
+    $vec[0] = array("validar"=>"no valida");
 
 } else {
     $vec[0] ['validar']="valida";

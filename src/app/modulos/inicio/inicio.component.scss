@@ -32,9 +32,19 @@ p{
 
 }
 
-.imagenes{
-  background-color: #FAA269
+#imagenes{
+  
+  border:2px solid #FAA269;
+  padding: 10px;
 
 
 }
+
+
+
+#imagenes img {
+  
+  object-fit: cover; 
+}
+
 

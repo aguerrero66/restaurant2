@@ -193,10 +193,6 @@ borrarcompra(id:any){
 })
 
 } 
-
-
-
-
 //preguntar
   preguntar (id:any, Materia_prima:any) {
       Swal.fire({
@@ -218,12 +214,6 @@ borrarcompra(id:any){
           });
         }
       });
-    
-  
-  
-  
-   
-    
   
     }    
     borrarproduct(id:any){

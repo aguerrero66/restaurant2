@@ -10,6 +10,7 @@ import { LoginService } from 'src/app/servicios/login.service';
 export class HeaderComponent implements OnInit {
 
   roles: number = 0;
+  menuDesplegado= false;
 
   constructor (private router:Router) {}
 
@@ -49,6 +50,24 @@ mostrarCompras() {
 mostrarVentas() {
   return sessionStorage.getItem('rol') === '1';
 }
+
+
+//if (sessionStorage.getItem('rol') === '1' || sessionStorage.getItem('rol') === '3') {
+  // Hacer algo si el valor es '1' o '3'
+  //console.log('El valor de "rol" es 1 o 3.');
+//} else {
+  // Hacer algo si el valor no es '1' ni '3'
+  //console.log('El valor de "rol" no es 1 ni 3.');
+//}
+
+
+
+
+  toggleMenu() {
+    this.menuDesplegado = !this.menuDesplegado;
+  }
+
+
 
 
 

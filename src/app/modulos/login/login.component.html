@@ -6,20 +6,102 @@
         </div>
         <div class="caja2">
             <h2 style="color:white;">¡Donde comer será toda una aventura!</h2>
+
+
         </div>
         <div class="caja3">
             <input class="controles" type="email" placeholder="Email" name="usuario" [(ngModel)]="email">
             <input class="controles" type="password" placeholder="Contraseña" name="contraseña" [(ngModel)]="clave">
             <div class="mb-3">
-              </div>
-            <span *ngIf="error==true" style="color:brown;"> Email o contraseña incorrecta</span>
-            <br>
-            <input class="botones" type="submit" value="INGRESAR" (click)="consulta()">
-            
+            <span *ngIf="error==true" style="color:yellow;"> Email o contraseña incorrecta</span> 
+        
         </div>
-    </div>
+           
+            <input class="botones" type="submit" value="INGRESAR" (click)="consulta()"> 
+        </div>
 
-</div>    
+
+  <div class="caja6">
+          <button class="btn btn-crear-cuenta" (click)="mostrar (1)">Crear tu cuenta</button><br><br>
+          <div id="formulario" *ngIf="verf==true">  
+              <div class="col-sm-6 col-md-5 form-section">
+              <div class="login-wrapper">
+                  <div class="form-group" >
+                    <div>
+                    <span style="color: crimson;" *ngIf="validNombre==false">Ingrese su nombre</span>
+                    <br>
+                    <input type="text" [(ngModel)]="user.Nombre" placeholder="Ingrese su nombre"> 
+                  </div>
+                    
+                  <div>
+                    <span style="color: crimson;" *ngIf="validCorreo==false">Ingrese un correo electrónico</span>
+                    <br>
+                    <input type="text" [(ngModel)]="user.Correo"placeholder="Correo Electrónico">
+                  </div>
+                    
+                    <div>
+                    <span style="color: crimson;" *ngIf="validclave==false">Ingrese una contraseña</span>
+                    <br>
+                    <input type="password" [(ngModel)]="user.clave"  placeholder="Contraseña">
+                  </div>
+            
+            
+                    
+                    <div> 
+                    <span style="color: crimson;" *ngIf="validTelefono==false">Ingrese su teléfono</span>
+                    <br>
+                    <input type="text" [(ngModel)]="user.Telefono" placeholder="Teléfono">
+                  </div>
+            
+                 
+                  
+                    
+                
+            
+                   <div>
+                   <span style="color: crimson;" *ngIf="validDireccion==false">Ingrese su dirección</span>
+                   <br>
+                    <input type="text"[(ngModel)]="user.Direccion" placeholder="Dirección">
+                  </div>
+                     <br>
+            
+                     <div class="mb-3">
+                      <span style="color: crimson;" *ngIf="validfo_localidad==false">Ingrese la localidad</span>
+                      <select class="form-select" aria-label="Default select example" name="localidad" id="fo_localidad" [(ngModel)]="user.fo_localidad">
+                        <option value="0" label="Seleccione una localidad"></option>
+                        <option  *ngFor="let itemlocal of localidad" value="{{itemlocal.id_localidad}}" >{{itemlocal.nombre}}</option>
+            
+               
+                      </select>
+            
+                     
+                       </div>
+                   
+                    
+                  </div>
+                </div>  
+            
+                
+              
+                  <div class="button2" >
+                  <button *ngIf="beditar===false" type="button" class="btn btn-warning" (click)="ingresar()" >Guardar</button>
+                  <button type="button" class="btn btn-warning" style="display: inline-block;" (click)="mostrar (0)">Cancelar</button>
+                </div>
+            
+            </div>
+            </div>
+
+
+
+
+
+      </div>
+
+            
+        
+
+</div>   
+</div> 
 
 
 

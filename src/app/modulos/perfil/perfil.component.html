@@ -1,0 +1,71 @@
+
+
+<h1> Mi perfil </h1>
+  <div class="caja3">
+  <input class="controles" type="text" placeholder="Escribe tu nombre" name="usuario" [(ngModel)]="nombre">
+</div>
+<button type="button" class="btn btn-warning" style="margin: 20px" (click)="consulta()" >Confirmar</button>
+
+<div class="col-lg-8" *ngIf="minfo===true">
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+    <input type="text" class="form-control" aria-label="usuario.nombre" [(ngModel)]="usuario.Nombre" aria-describedby="inputGroup-sizing-default" readonly>
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+    <input type="text" class="form-control" aria-label="usuario.nombre" [(ngModel)]="usuario.Correo" aria-describedby="inputGroup-sizing-default" readonly>
+  </div>
+  
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Telefono</span>
+    <input type="text" class="form-control" aria-label="usuario.nombre" [(ngModel)]="usuario.Telefono" aria-describedby="inputGroup-sizing-default" readonly>
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Localidad</span>
+    <input type="text" class="form-control" aria-label="usuario.nombre" [(ngModel)]="usuario.nombre_localidad" aria-describedby="inputGroup-sizing-default"readonly>
+  
+
+    
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="inputGroup-sizing-default">Direccion</span>
+    <input type="text" class="form-control" aria-label="usuario.nombre" [(ngModel)]="usuario.Direccion" aria-describedby="inputGroup-sizing-default"readonly>
+  </div>
+
+  <!--<button type="button" class="btn btn-warning" style="margin: 20px">Editar</button>-->
+
+      <div>
+      <button  type="button" class="btn btn-warning" style="margin: 40px" (click)="hpedidos()">Mi historial de pedidos</button>
+
+     <div id="tabla" *ngIf="venta===true">
+        <div class="table-responsive" >
+        <table class="table table-bordered" style="color:black; border: 4px solid black;">
+          <thead class="table-light"> 
+            <tr>  
+              <th>Fecha Pedido</th>
+              <th>Productos</th>
+              <th>Estado del pedido</th>
+              <th>Metodo de pago</th>
+              <th>Total</th>
+            
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr *ngFor="let item of pedidos">
+              <td>{{item.fecha_pedido}}</td> 
+              <td>{{item.productos}}</td> 
+              <td>{{item.estado_del_pedido}}</td> 
+              <td>{{item.metodo_pago}}</td> 
+              <td>{{item.total}}</td>
+            </tr>
+          </tbody> 
+          </table>
+        </div>
+        </div>
+    </div>
+    </div>

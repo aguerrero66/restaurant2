@@ -6,17 +6,18 @@ $json= file_get_contents ('php://input');
 $params = json_decode ($json);
 
 
+$id=$_GET ['id'];
+$fo_Usuario=$params->fo_Usuario;
+$fo_rol=$params->fo_rol;
+
 
 require("../conexion.php");
 
 
 
 
-$id=$_GET ['id'];
-$fo_Usuario=$params->fo_Usuario;
-$fo_rol=$params->fo_rol;
 
-$editar ="UPDATE Notificacion SET tipo_notificacion='$params->tipo_notificacion', mensaje='$params->mensaje', fo_Usuario='$fo_Usuario', fo_rol='$fo_rol' WHERE id_notificacion=$id";
+$editar ="UPDATE Notificacion SET tipo_notificacion='$params->tipo_notificacion', mensaje='$params->mensaje', fo_Usuario=$fo_Usuario, fo_rol=$fo_rol WHERE id_notificacion='$id'";
 if (!$resultado = mysqli_query($conexion, $editar)) {
     die("Error en la consulta: " . mysqli_error($conexion));
 };

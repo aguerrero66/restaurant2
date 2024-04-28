@@ -31,6 +31,7 @@ export class NotificacionesService {
     return this.http.get(`${this.url}eliminar.php?id=${id}`);
   }
   edit (datos:any, id:number){
+    console.log (`${this.url}editar.php?id=${id}`,JSON.stringify(datos));
     return this.http.post(`${this.url}editar.php?id=${id}`,JSON.stringify(datos));
   }
 

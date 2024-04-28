@@ -15,6 +15,7 @@ export class ProductosComponent {
   idproduct:any;
   product ={
   nombre:"",
+  fecha_productos:new Date (),
   precio_venta:0,
   precio_neto:0,
   cantidad:0,
@@ -24,6 +25,7 @@ export class ProductosComponent {
   // Para validar
   validnombre=true;
   validprecio_venta=true;
+  validfecha_productos=true;
   validcprecio_neto=true;
   validcantidad=true;
 
@@ -45,6 +47,7 @@ export class ProductosComponent {
     //limpiar formulario
 limpiar () {
   this.product.nombre="";
+  this.product.fecha_productos=new Date();
   this.product.precio_venta=0;
   this.product.precio_neto=0;
   this.product.cantidad=0;
@@ -84,6 +87,12 @@ validar (){
   }else {this.validnombre=true
     
     }
+    if(this.product.fecha_productos== new Date () ){
+      this.validfecha_productos== false; 
+    }else {this.validfecha_productos=true
+      
+      }
+
   if(this.product.precio_venta==0 ){
         this.validprecio_venta=false; 
   }else {this.validprecio_venta=true
@@ -110,7 +119,7 @@ ingresar(){
   
 
   
-  if(this.validnombre==true && this.validprecio_venta==true && this.validcprecio_neto==true ) {
+  if(this.validnombre==true && this.validfecha_productos==true && this.validprecio_venta==true && this.validcprecio_neto==true ) {
   this.sproductos.insertar(this.product).subscribe((datos:any) => {
   if(datos['resultado']=='OK'){
   
@@ -132,7 +141,7 @@ ingresar(){
   //editar productos
 edita(){
 this.validar();
-if(this.validnombre==true && this.validprecio_venta==true && this.validcprecio_neto==true && this.validcantidad ) {
+if(this.validnombre==true && this.validfecha_productos==true && this.validprecio_venta==true && this.validcprecio_neto==true && this.validcantidad ) {
 this.sproductos.edit (this.product, this.idproduct).subscribe((datos:any) => {
 if(datos['resultado']=='OK'){
   
@@ -199,6 +208,7 @@ if(datos['resultado']=='OK'){
 
     //console.log (datos);
     this.product.nombre=datos.nombre;
+    this.product.fecha_productos=datos.fecha_productos;
     this.product.precio_venta=datos.precio_venta;
     this.product.precio_neto=datos.precio_neto;
     this.product.cantidad=datos.cantidad;

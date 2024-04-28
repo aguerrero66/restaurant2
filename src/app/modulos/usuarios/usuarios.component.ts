@@ -12,10 +12,12 @@ export class UsuariosComponent {
 //variables globales
 verf=false;
 usuario:any;
-iduser:any;
+idusuario:any;
 localidad:any;
 fo_rol:any;
+
 user ={
+id_usuario:0, 
 Nombre:"",
 Telefono:"",
 Correo:"",
@@ -57,7 +59,7 @@ beditar=false;
     this.verf=false;
     this.limpiar();
     this.beditar=false;
-    this.iduser="";
+    this.idusuario="";
     break;
     case 1:
     this.verf=true;
@@ -161,7 +163,7 @@ this.validar();
 console.log (this.user);
 console.log (this.validfo_localidad);*/
 
-if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true && this.validfo_localidad==true && this.validfo_rol==true) {
+if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true && this.validfo_localidad==true) {
 this.suser.insertar(this.user).subscribe((datos:any) => {
 if(datos['resultado']=='OK'){
 
@@ -235,6 +237,7 @@ cargardatos(items:any, id:number){
 console.log (items);
 //console.log(items.fo_rol);
 this.user={
+id_usuario:items.id_usuario,  
 Nombre:items.Nombre,
 Correo:items.Correo,
 clave:items.clave,
@@ -243,10 +246,10 @@ Direccion:items.Direccion,
 fo_rol:items.fo_rol,
 fo_localidad:items.fo_localidad
 }
-console.log("Después de asignar:", this.validfo_localidad);
+//console.log("Después de asignar:", this.validfo_localidad);
 this.mostrar(1);
 this.beditar=true;
-this.iduser=id;
+this.idusuario=id;
 
 
 }
@@ -254,10 +257,12 @@ this.iduser=id;
 edita(){
   this.validar();
   //console.log (this.user.fo_rol);
-  //console.log (this.user.fo_localidad);
+  console.log (this.user.fo_localidad);
+  console.log ("id usuario", this.user.id_usuario);
+  console.log ("clave", this.user.clave);
 
 if(this.validNombre==true && this.validCorreo==true && this.validTelefono==true && this.validDireccion && this.validclave==true && this.validfo_localidad==true && this.validfo_rol==true ) {
-this.suser.edit (this.user, this.iduser).subscribe((datos:any) => {
+this.suser.edit (this.user, this.user.id_usuario).subscribe((datos:any) => {
 if(datos['resultado']=='OK'){
 
 this.consulta();  

@@ -7,6 +7,12 @@
       <div class="form-group" >
 
         <div>
+          <span style="color: crimson;" *ngIf="validfecha_productos==false">Ingrese fecha del producto</span>
+          <br>
+          <input type="date" [(ngModel)]="product.fecha_productos" placeholder="fecha_productos"> 
+        </div>
+
+        <div>
         <span style="color: crimson;" *ngIf="validnombre==false">$ Ingrese el nombre del producto</span>
         <br>
         <input type="text" [(ngModel)]="product.nombre" placeholder="Ingrese el nombre del producto"> 
@@ -54,6 +60,7 @@
    <table class="table table-bordered" style="color:black;border: 3px solid black;">
     <thead class="table-light">
       <tr style="color:black">
+        <th>Fecha del producto</th>
         <th>Nombre</th>
         <th>Precio venta</th>
         <th>Precio neto</th>
@@ -64,6 +71,7 @@
      
 
       <tr *ngFor="let item  of producto" style="color:black">
+        <td>{{item.fecha_productos}}</td> 
         <td>{{item.nombre}}</td> 
         <td>{{item.precio_venta}}</td> 
         <td>{{item.precio_neto}}</td> 

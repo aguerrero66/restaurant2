@@ -9,6 +9,13 @@ export class PedidosService {
   url='http://localhost/restaurant2/src/app/PHP/Pedido/'
 
   constructor(private http:HttpClient) {}
+
+inforperfil(idusuario:number){
+  //console.log(`${this.url}infoperfil.php?id=${idusuario}`)
+  return this.http.get(`${this.url}infoperfil.php?id=${idusuario}`)
+  }
+  
+
   consultar (){
     return this.http.get(`${this.url}consultad.php`)
   }

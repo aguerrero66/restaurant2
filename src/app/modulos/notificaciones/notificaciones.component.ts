@@ -190,10 +190,36 @@ ingresar(){
   }
 
 
-  edita(){
+  /*edita(){
     this.validar();
+    console.log (this.idnotificacion);
     if(this.validid_notificacion==true && this.validtipo_notificacion==true && this.validmensaje==true && this.validfo_Usuario && this.validfo_rol) {
-      this.snotificaciones.edit(this.notificaciones,this.idnotificacion).subscribe((datos:any) => {
+      this.snotificaciones.edit(this.notificaciones,this.notificaciones.id_notificacion).subscribe((datos:any) => {
+      if(datos['resultado']=='OK') {
+  
+  
+  this.consulta();  
+  
+  }
+  });
+  this.mostrar(0);
+  
+  
+  
+  }
+  }*/
+
+
+
+  edita(){
+    console.log('ID del pedido:', this.idnotificacion);
+    console.log('ID del pedido:', this.notificaciones.id_notificacion);
+
+    this.validar();
+    if(this.validid_notificacion==true && this.validtipo_notificacion==true && this.validmensaje==true && this.validfo_Usuario==true && this.validfo_rol )
+    
+     {
+      this.snotificaciones.edit(this.notificaciones,this.notificaciones.id_notificacion).subscribe((datos:any) => {
       if(datos['resultado']=='OK') {
   if(datos['resultado']=='OK'){
   
@@ -255,11 +281,13 @@ cargardatos(datos:any, id:number){
     /*console.log("Tipo de notificación: ", datos.tipo_notificacion);
     console.log("ID Usuario: ", datos.fo_Usuario);
     console.log("ID Rol: ", datos.fo_rol);*/
+    console.log ("id: ", this.idnotificacion);
 
     this.notificaciones.tipo_notificacion=datos.tipo_notificacion;
     this.notificaciones.mensaje=datos.mensaje;
     this.notificaciones.fo_Usuario=datos.fo_Usuario;
     this.notificaciones.fo_rol=datos.fo_rol;
+    this.notificaciones.id_notificacion=datos.id_notificacion;
     this.mostrar(1);
     this.beditar=true;
     this.idnotificacion=id;

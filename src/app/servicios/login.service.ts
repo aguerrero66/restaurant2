@@ -12,6 +12,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   consultar(user:any, clave:any) {
+    console.log(`${this.url}login.php?user=${user}&clave=${clave}`);
     return this.http.get(`${this.url}login.php?user=${user}&clave=${clave}`)
   }
 }

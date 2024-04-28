@@ -27,11 +27,17 @@ export class usuarioService {
     return this.http.post(`${this.url}insertar.php`, JSON.stringify(articulo));
   }
 
+  insertarlogin(articulo:any) {
+    return this.http.post(`${this.url}insertarlogin.php`, JSON.stringify(articulo));
+  }
+
   eliminar(id: number) {
 
     return this.http.get(`${this.url}eliminar.php?id=${id}`);
   }
-  edit(datos: any, id:number) {
-    return this.http.post(`${this.url}editar.php?id=${id}`, JSON.stringify(datos));
-  }
+  edit(datos: any, idusuario:number) {
+    console.log(`${this.url}editar.php?id=${idusuario}`);
+    return this.http.post(`${this.url}editar.php?id=${idusuario}`, JSON.stringify(datos));
+}
+
 }
